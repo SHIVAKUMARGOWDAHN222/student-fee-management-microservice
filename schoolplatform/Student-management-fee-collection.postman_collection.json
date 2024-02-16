@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "6646fe12-f495-44a6-8410-237bd7f9c246",
+		"name": "Student-management-fee-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32905721"
+	},
+	"item": [
+		{
+			"name": "RegisterStudent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"rahul\",\r\n  \"lastName\": \"kumar\",\r\n  \"schoolName\": \"RRHS\",\r\n  \"grade\": 10,\r\n  \"email\": \"shiv@gmail.com\",\r\n  \"mobileNumber\": \"1234567890\",\r\n  \"addresses\": [\r\n    {\r\n      \"street\": \"13\",\r\n      \"city\": \"Dubai\",\r\n      \"state\": \"UAE\",\r\n      \"postalCode\": \"56008\"\r\n    }\r\n  ],\r\n  \"guardians\": [\r\n    {\r\n      \"firstName\": \"Raj\",\r\n      \"lastName\": \"Kumar\",\r\n      \"relationship\": \"Father\",\r\n      \"email\": \"raj@email.com\",\r\n      \"mobileNumber\": \"123456789\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/studentmicroservice/api/v1/students/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"studentmicroservice",
+						"api",
+						"v1",
+						"students",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllRegisteredStudents Pagination",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/studentmicroservice/api/v1/students?pageNumber=0&pageSize=10&sortDirection=ASC&sortBy=id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"studentmicroservice",
+						"api",
+						"v1",
+						"students"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "sortDirection",
+							"value": "ASC"
+						},
+						{
+							"key": "sortBy",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Courses Availabality",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/studentmicroservice/api/v1/courses?pageNumber=0&pageSize=10&sortDirection=ASC&sortBy=id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"studentmicroservice",
+						"api",
+						"v1",
+						"courses"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "sortDirection",
+							"value": "ASC"
+						},
+						{
+							"key": "sortBy",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enroll Course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"joiningYear\": 2024,\r\n    \"studentId\": 1,\r\n    \"courseId\": 5\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/studentmicroservice/api/v1/enrollments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"studentmicroservice",
+						"api",
+						"v1",
+						"enrollments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Enrollment Status StudentID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/studentmicroservice/api/v1/students/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"studentmicroservice",
+						"api",
+						"v1",
+						"students",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate receipt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/viewreceiptmicroservice/api/v1/receipt/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"viewreceiptmicroservice",
+						"api",
+						"v1",
+						"receipt",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
