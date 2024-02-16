@@ -53,7 +53,7 @@ public class AdmissionServiceImpl implements AdmissionService {
     private PaymentDTO convertToPaymentDTO(Payment payment){
         PaymentDTO paymentDTO = new PaymentDTO();
         paymentDTO.setPaymentid(payment.getId());
-        paymentDTO.setFeeId(paymentDTO.getFeeId());
+        paymentDTO.setFeeId(payment.getFee().getId());
         paymentDTO.setTransactionDateTime(payment.getTransactionDateTime());
         paymentDTO.setAmount(payment.getAmount());
         paymentDTO.setTransactionStatus(payment.getTransactionStatus());

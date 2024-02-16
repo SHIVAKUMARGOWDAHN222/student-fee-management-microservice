@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/receipt")
+@RequestMapping("/api/v1/receipt")
 public class ReceiptController {
 
     private final ReceiptService receiptService;
@@ -21,7 +21,7 @@ public class ReceiptController {
         this.receiptService = receiptService;
     }
 
-    @GetMapping("/getData/{studentid}")
+    @GetMapping("/{studentid}")
     @RateLimiter(name = "squareLimit", fallbackMethod = "fallBackMethod")
     public Mono<ResponseEntity<String>> getDataFromMicroservices(@PathVariable Long studentid) {
         return receiptService.getDataFromMicroservices(studentid)
